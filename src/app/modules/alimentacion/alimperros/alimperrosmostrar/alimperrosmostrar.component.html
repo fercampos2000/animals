@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="alimperrosmostrar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='alimgatosMostrar'"> IR A ALIMENTACIÓN DE GATOS</button><br>
+      </div>
+    </header>
+
+
+   
+
+    <div class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 class="Titulo">REGISTROS DE ALIMENTACIÓN DE PERROS</h1>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Sector</th>
+                <th scope="col">Estado del sector</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of filteredRpersonas">
+                <td>{{data.fecha | date:'dd/MM/yyyy'}}</td>
+                <td>{{data.sector}}</td>
+                <td>{{data.estado_sector}}</td>
+               <!-- <td>{{data.fecha}}</td> -->
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="button4">
+        <button class="button3" type="button" onclick="location.href='alimperrosAgregar'">AGREGAR NUEVO REGISTRO</button><br>
+        <button class="button3 buttoneditar" type="button" onclick="location.href='alimperros'">EDITAR UN REGISTRO</button><br>
+        <button class="button3 buttoneliminar" type="button" onclick="location.href='alimperros'">ELIMINAR UN REGISTRO</button><br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+</html>

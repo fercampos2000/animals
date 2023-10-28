@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="rpersonaleditar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='rpersonal'">REGRESAR</button><br>
+        </div>
+    </header>
+
+   
+
+    <form class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 class="Titulo">EDITAR REGISTRO DE PERSONAL</h1>
+        <div class="row">
+          <div class="col">
+            <label for="nombreadmin">Nombre:</label>
+            <input type="text" id="nombreadmin" name="nombreadmin" value="{{nombre}}" #Nombre>
+          </div>
+          <div class="col">
+            <label for="apellidoadmin">Apellido:</label>
+            <input type="text" id="apellidoadmin" name="apellidoadmin" value="{{apellido}}" #Apellido>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="edadadmin">Edad:</label>
+            <input type="number" id="edadadmin" name="edadadmin" value="{{edad}}" #Edades>
+          </div>
+          <div class="col">
+            <label for="nivel-academico">Nivel Académico:</label>
+            <select class="form-control" id="nivel-academico" [ngModelOptions]="{ standalone: true }" [(ngModel)]="grado_academico" name="nivel_academico" required>
+              <option [value]="grado_academico">{{grado_academico}}</option>
+              <option value="Primario">Primario</option>
+              <option value="Secundario">Secundario</option>
+              <option value="Diversificado">Diversificado</option>
+              <option value="Universitario">Universitario</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="telefonoadmin">Teléfono:</label>
+            <input type="tel" id="telefonoadmin" name="telefonoadmin" value="{{telefono}}" #Telefono>
+          </div>
+          <div class="col">
+            <label for="direccionadmin">Dirección:</label>
+            <input type="text" id="direccionadmin" name="direccionadmin" value="{{direccion}}" #Direccion>
+          </div>
+        </div>
+
+        <div>
+          <button class="button2 Agregar" type="submit" (click)="editarRpersona( Nombre.value, Apellido.value, Edades.value, grado_academico,Telefono.value, Direccion.value)">GUARDAR EL CAMBIO</button><br>
+      </div>
+
+      </form>
+</body>
+</html>

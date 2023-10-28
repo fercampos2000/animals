@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="alimgatos.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='alimgatosMostrar'">REGRESAR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='alimperrosMostrar'">IR A ALIMENTACIÓN DE PERROS</button><br>
+        </div>
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="Titulo">ALIMINETACIÓN DE GATOS</h1>
+
+    <div class="container buscarfecha">
+      <form id="filtro-form">
+          <label class="textofecha" for="fecha">FECHA DEL REGISTRO A EDITAR O ELIMINAR</label>
+          <input class="textofecha" type="date" id="fecha" name="fecha" value="fecha" #Fecha>
+          <button class="button button2" type="submit" (click)="Buscarregistro(Fecha.value)">Buscar registro</button>
+      </form>
+  </div>
+
+
+
+
+  <div class="container">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Sector</th>
+            <th scope="col">Estado del sector</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let data of filteredRpersonas; let i = index">
+            <tr [class.row-alternate]="i % 2 === 1">
+              <td>{{data.sector}}</td>
+              <td>{{data.estado_sector}}</td>
+              <td>{{data.fecha | date:'dd/MM/yyyy'}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+</div>
+<div class="button4">
+    <button class="button3 buttoneditar" type="button" (click)="editRmedicoperro(Fecha.value)" role="button">EDITAR EL REGISTRO</button><br>
+    <button class="button3 buttoneliminar" type="button" (click)="confirmarEliminacion(Fecha.value)">ELIMINAR EL REGISTRO</button><br>
+</div>
+
+        <!-- Agrega un div para mostrar la alerta -->
+        <div class="container">          
+          <div *ngIf="mostrarAlerta" class="text alert alert-danger">
+          ¿Seguro que deseas eliminar este registro?
+          <button class="Agregar2 btn btn-danger" (click)="eliminarRmedicoperro(idAEliminar)">Sí</button>
+          <button class="Agregar3 btn btn-primary" (click)="cancelarEliminacion()">No</button>
+          </div>
+      </div>
+</body>
+</html>

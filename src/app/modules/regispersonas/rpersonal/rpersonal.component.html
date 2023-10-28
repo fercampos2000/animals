@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="rpersonal.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='rvoluntarios'">IR AL REGISTRO DE VOLUNTARIOS</button><br>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="Titulo">REGISTROS DEL PERSONAL</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Num</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Nivel academico</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of filteredRpersonas; let i=index">
+                <th scope="row">{{i + 1}}</th>
+                    <td>{{data.nombre}}</td>
+                    <td>{{data.apellido}}</td>
+                    <td>{{data.edad}}</td>
+                    <td>{{data.grado_academico}}</td>
+                    <td>{{data.telefono}}</td>
+                    <td>{{data.direccion}}</td>
+                <td>
+                    <button type = "button" class="Agregar4" (click)="editRpersona(data.id_persona)" >Editar</button>
+                </td>
+                
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="confirmarEliminacion(data.id_persona)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Agrega un div para mostrar la alerta -->
+          <div class="container">          
+            <div *ngIf="mostrarAlerta" class="text alert alert-danger">
+            ¿Seguro que deseas eliminar este registro?
+            <button class="Agregar2 btn btn-danger" (click)="eliminarRpersona(idAEliminar)">Sí</button>
+            <button class="Agregar3 btn btn-primary" (click)="cancelarEliminacion()">No</button>
+          </div>
+        </div>
+        
+        <div>
+            <button class="button2 Agregar" type="button" onclick="location.href='rpersonalAgregar'">AGREGAR NUEVO REGISTRO</button><br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</body>
+</html>
+

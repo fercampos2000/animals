@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="rperroseditar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='rperros'">REGRESAR</button><br>
+        </div>
+    </header>
+
+
+
+    <form class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="Titulo">EDITAR REGISTRO DE PERRO</h1>
+        <div class="row">
+            <div class="subirimagen col">
+                <label for="imagen">IMAGEN ACTUAL</label>
+                <div><img [src]="imagen" class="tabla-img2"></div>
+                <br>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+            <div class="subirimagen col">
+                <label for="imagen">SELECCIONA UNA IMAGEN NUEVA</label>
+                <input type="file" (change)="onFileChange($event)">
+                <div id="imagenPanel" *ngIf="imagenSeleccionada" class="tabla-img2">
+                    <img [src]="imagenSeleccionada"class="tabla-img2">
+                </div>
+                <br>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="nombreperro">Nombre:</label>
+                <input type="text" id="nombreperro" name="nombreperro" value="{{nombre}}" #Nombre>
+            </div>
+          <div class="col">
+            <label for="edad">Edad:</label>
+            <select id="edad" name="edad" [ngModelOptions]="{ standalone: true }" [(ngModel)]="edad" required>
+              <option value="menos1">Menos de 1</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="Mas de los 15">Mas de los 15</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="razaperro">Raza:</label>
+                <input type="text" id="razaperro" name="razaperro" value="{{raza}}" #Raza>
+            </div>
+        </div>
+
+        <div>
+            <button class="button2 Agregar" type="submit" (click)="editarRperroo(Nombre.value, edad, Raza.value)">GUARDAR EL CAMBIO</button><br>
+        </div>
+
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+</body>
+</html>

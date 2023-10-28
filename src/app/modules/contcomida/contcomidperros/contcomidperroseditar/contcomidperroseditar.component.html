@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="contcomidperroseditar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='contcomidperrosLista'">REGRESAR</button><br>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="Titulo">EDITAR EL INGRESO DE COMIDA PARA PERROS</h1>
+
+    <form class="container">
+        <div class="row">
+            <div class="col">
+                <label class="textofecha" for="otro">CANTIDAD DE COMIDA INGRESADA</label>
+                <input class="textofecha" type="text" id="otro" name="otro" value="{{cantidad_ingreso}}" [(ngModel)]="cantidad_ingreso">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="textofecha" for="fecha">FECHA DEL INGRESO DE COMIDA</label>
+            <input class="textofecha" type="date" id="fecha" name="fecha" value="{{ffecha}}" #Fecha>
+          </div>
+        </div>
+
+        <div>
+          <button class="button2 Agregar" type="button" (click)="editarRpersona( cantidad_ingreso, Fecha.value)">GUARDAR EL CAMBIO</button><br>
+      </div>
+
+      </form>
+</body>
+</html>

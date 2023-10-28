@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="rmedicosperroseditar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='rmedicosperros'">REGRESAR</button><br>
+        </div>
+    </header>
+
+   
+
+    <form class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="Titulo">EDITAR REGISTRO MEDICO</h1>
+        <div class="row">
+            <div class="col">
+                <label for="nombre">Nombre:</label>
+                <select class="form-control" id="nombreanimal" [ngModelOptions]="{ standalone: true }" [(ngModel)]="nombre" name="nombreanimal" required>
+                    <option [value]="nombre">{{nombre}}</option>
+                    <option *ngFor="let perroNombre of nombresPerros" [value]="perroNombre">{{perroNombre}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="agresividad">Nivel de agresividad:</label>
+                <select class="form-control" id="agresividad" [ngModelOptions]="{ standalone: true }" [(ngModel)]="agresividad" name="agresividad" required>
+                  <option [value]="agresividad">{{agresividad}}</option>
+                  <option value="Alto">Alto</option>
+                  <option value="Mediano">Mediano</option>
+                  <option value="Bajo">Bajo</option>
+                  <option value="No posee agresividad">No posee agresividad</option>
+                </select>
+            </div>
+            
+
+        </div>
+        <div class="row">
+
+
+            <div class="col">
+                <label for="sector-primario">Esterilización</label>
+                <select class="form-control" id="esterilizacion" [ngModelOptions]="{ standalone: true }" [(ngModel)]="esterilizacion" name="esterilizacion" required>
+                  <option [value]="esterilizacion">{{esterilizacion}}</option>
+                  <option value="Si">Si</option>
+                  <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="vacuna1">Vacuna 1:</label>
+                <select class="form-control" id="vacuna1" [ngModelOptions]="{ standalone: true }" [(ngModel)]="vacuna1" name="vacuna1" required>
+                    <option [value]="vacuna1">{{vacuna1}}</option>
+                  <option value="Pentavalente">Pentavalente</option>
+                  <option value="No tiene">No tiene</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <label for="vacuna2">Vacuna 2:</label>
+                <select class="form-control" id="sector" [ngModelOptions]="{ standalone: true }" [(ngModel)]="vacuna2" name="sector" required>
+                    <option [value]="vacuna2">{{vacuna2}}</option>
+                  <option value="Rabia">Rabia</option>
+                  <option value="No tiene">No tiene</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="otrormperro">Otro dato medico:</label>
+                <input type="text" id="otrormperro" name="otrormperro" value="{{otro}}" #Otro>
+              </div>
+        </div>
+
+        <div>
+          <button class="button2 Agregar" type="button" (click)="editarRmedicoperro( nombre, agresividad,esterilizacion , vacuna1, vacuna2, Otro.value)">GUARDAR EL CAMBIO</button><br>
+      </div>
+
+      </form>
+</body>
+</html>
+

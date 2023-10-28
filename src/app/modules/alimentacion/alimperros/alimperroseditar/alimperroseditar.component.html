@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/scss" href="alimperroseditar.component.scss">
+</head>
+<body>
+    <header class="login-header">
+        <img class="login-img" src="/assets/img/logoanimals.png">
+        <div class="login-logo">
+            <h2 class="login-name">ANIMALS</h2>
+        </div> 
+        <div>
+            <button class="home" type="button" onclick="location.href='login'">SALIR</button><br>
+        </div>
+        <div>
+            <button class="home" type="button" onclick="location.href='menuinit'">MENU</button><br>
+        </div>
+        <div>
+          <button class="home" type="button" onclick="location.href='alimperros'">REGRESAR</button><br>
+        </div>
+    </header>
+
+  
+
+    <form class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 class="Titulo">EDITAR REGISTRO DE ALIMENTACIÓN</h1>
+        <div class="row">
+            <div class="col">
+                <label for="sector-primario">Sector Primario:</label>
+                <select id="sector-primario" [ngModelOptions]="{ standalone: true }" [(ngModel)]="estado_sector1" name="sector-primario" required>
+                  <option [value]="estado_sector1">{{estado_sector1}}</option>
+                  <option value="Alimentado">Alimentado</option>
+                  <option value="No alimentado">No alimentado</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="sector-Secundario">Sector Secundario:</label>
+                <select id="sector-Secundario" [ngModelOptions]="{ standalone: true }" [(ngModel)]="estado_sector2" name="sector-Secundario" required>
+                  <option [value]="estado_sector2">{{estado_sector2}}</option>
+                  <option value="Alimentado">Alimentado</option>
+                  <option value="No alimentado">No alimentado</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="sector-Terciario">Sector Terciario:</label>
+                <select id="sector-Terciario" [ngModelOptions]="{ standalone: true }" [(ngModel)]="estado_sector3" name="sector-Terciario" required>
+                  <option [value]="estado_sector3">{{estado_sector3}}</option>
+                  <option value="Alimentado">Alimentado</option>
+                  <option value="No alimentado">No alimentado</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="sector-Cuaternario">Sector Cuaternario:</label>
+                <select id="sector-Cuaternario" [ngModelOptions]="{ standalone: true }" [(ngModel)]="estado_sector4" name="sector-Cuaternario" required>
+                  <option [value]="estado_sector4">{{estado_sector4}}</option>
+                  <option value="Alimentado">Alimentado</option>
+                  <option value="No alimentado">No alimentado</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label class="textofecha" for="fecha">FECHA DEL REGISTRO A EDITAR</label>
+            <input class="textofecha" type="date" id="fecha" name="fecha" value="{{ffecha}}" #Fecha>
+          </div>
+        </div>
+
+        <div>
+          <button class="button2 Agregar" type="button" (click)="editarAlimperro( sector1='1', estado_sector1,Fecha.value , sector2='2', estado_sector2, sector3='3', estado_sector3, sector4='4', estado_sector4)">GUARDAR EL CAMBIO</button><br>
+      </div>
+
+      </form>
+</body>
+</html>
+
